@@ -5,28 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthorViewComponent } from './authors/author-view/author-view.component';
-import { CreateComponent } from './authors/create/create.component';
-import { UpdateComponent } from './authors/update/update.component';
 import { BookViewComponent } from './books/book-view/book-view.component';
-import { GenreViewComponent } from './genres/genre-view/genre-view.component';
 import { NotFoundComponent } from './other/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GenresModule } from './genres/genres.module';
+import { GenresRoutingModule } from './genres/genres-routing.module';
+import { CommonModule } from '@angular/common';
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthorViewComponent,
-    CreateComponent,
-    UpdateComponent,
+    AuthorViewComponent,   
     BookViewComponent,
-    GenreViewComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    CommonModule,
+    GenresModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    GenresRoutingModule,
+    AppRoutingModule,
+    DynamicFormModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

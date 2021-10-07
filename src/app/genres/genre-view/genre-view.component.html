@@ -1,1 +1,24 @@
-<p>genre-view works!</p>
+
+<div class="mt-5">
+    <div class="m-2">
+        <a [routerLink]="['create']"  class="link link-primary  ">Добавить новый жанр</a>
+    </div>
+    
+    <div>
+        <table class="table table-secondary">
+            <tr>
+                <th>Название жанра</th>
+                <th class="text-center">Описание жанра</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of list">
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                    <input class="btn btn-primary m-2" type="button" value="Редактировать">
+                    <input class="btn btn-danger m-2" (click)="deleteGenre(item.id)" type="button" value="Удалить">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

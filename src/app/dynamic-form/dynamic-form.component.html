@@ -1,0 +1,14 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()"  [formGroup]="form">
+  
+      <div class="form-group" *ngFor="let element of elements">
+        <dynamic-form-element [element]="element" [form]="form"></dynamic-form-element>
+      </div>
+      <div class="container p-3">
+        <input type="reset" class="btn btn-secondary" value="Очистить">
+        <input type="submit" [disabled]="!form.valid" class="btn btn-success" value="Сохранить">
+        
+      </div>
+      
+    </form>
+  </div>
