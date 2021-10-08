@@ -1,1 +1,26 @@
-<p>book-view works!</p>
+<div class="container">
+    <table class="table table-stripped">
+        <tr>
+            <th>Название</th>
+            <th>Жанр</th>
+            <th>Старницы</th>
+            <th>Автор</th>
+            <th></th>
+        </tr>        
+        <ng-container *ngFor="let a of books" >
+        <tr *ngFor="let item of a.books">
+            
+                <td>{{ item.title }}</td>
+                <td>{{ item.genre }}</td>
+                <td>{{ item.numberOfPages }}</td>
+                <td>...</td>
+                <td>
+                    <input type="button" class="btn btn-primary" (click)="updateBook(a.id,item.id)" value="Редактировать">
+                    <input type="button" class="btn btn-danger" (click)="delBook(a.id,item.id)" value="Удалить">
+                </td>
+            
+            
+        </tr>
+        </ng-container>
+    </table>
+</div>
