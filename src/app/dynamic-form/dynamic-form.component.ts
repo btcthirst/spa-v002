@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { BaseElement } from '../models/base-element';
 import { ElementsService } from '../services/elements.service';
+import { GenreCrudService } from '../services/genre-crud.service';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -10,9 +11,9 @@ import { ElementsService } from '../services/elements.service';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() elements: BaseElement<any>[] = [];
-  @Input('testFunc') onSubmit(){}
+  @Input('testFunc') onSubmit:()=>void=()=>{}
   form!: FormGroup;
-  constructor(private es: ElementsService) { }
+  constructor(private es: ElementsService, private cruds: GenreCrudService) { }
 
   ngOnInit(): void {
     this.form= this.es.toFormGroup(this.elements);

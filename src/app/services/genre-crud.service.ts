@@ -11,23 +11,23 @@ export class GenreCrudService {
     private genreDB: GenreDbService
   ) { }
 
-  getAll(){
+  getAllGenres(){
     return this.genreDB.getAllGenres()
   }
 
-  getByID(id: number){
+  getGenreByID(id: number){
     this.genreDB.getGenreByID(id)
   }
 
-  create(g: Genre){
+  createGenre(g: Genre){
     this.genreDB.createGenre(g)
   }
 
-  update(g: Genre){
+  updateGenre(g: Genre){
     this.genreDB.updateGenre(g)
   }
 
-  delete(id:number){
+  deleteGenre(id:number){
     console.log("deleted")
     this.genreDB.deleteGenre(id)
   }

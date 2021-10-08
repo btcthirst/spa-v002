@@ -5,6 +5,7 @@ import { Genre } from '../models/genre';
   providedIn: 'root'
 })
 export class GenreDbService {
+  key:string="genres"
   private genres!:Genre[]
   constructor() {
     this.genres =[
@@ -14,8 +15,23 @@ export class GenreDbService {
       new Genre(4,"стихи","такое-то произведение или ето просто оправдание рукоблудия на клавиатуре"),
     ]
   }
-  getAllGenres(){
+  writeToLocalStorage(g: Genre[]){
+    localStorage.setItem(this.key,JSON.stringify(g))
+  }
+  getFromLocalStorage():Genre[]{
+    let test=localStorage.getItem(this.key)
+    if(test){
+      
+      this.genres =(JSON.parse(test) as Genre[])
+    } else{
+      this.writeToLocalStorage(this.genres)
+    }
     return this.genres
+  }
+
+  getAllGenres(): Genre[]{
+    
+    return this.getFromLocalStorage()
   }
 
   getGenreByID(id: number):Genre|undefined{
@@ -29,7 +45,9 @@ export class GenreDbService {
   }
 
   createGenre(g: Genre){
+    g.id=this.creatorID()
     this.genres.push(g)
+    this.writeToLocalStorage(this.genres)
   }
 
   updateGenre(genre: Genre){
@@ -46,7 +64,26 @@ export class GenreDbService {
     this.genres =genres.filter(g=>{
       return g.id!=id
     })
+    this.writeToLocalStorage(this.genres)
   }
 
+  creatorID():number{
+    let id=1
+    
+    for(id;;id++){
+      let check=0
+      for(let g of this.genres){
+        if(g.id==id){
+          check=1
+        }
+        break
+      }
+      if(check==0){
+        break
+      }
+    }
+    
+    return id
+  }
   
 }

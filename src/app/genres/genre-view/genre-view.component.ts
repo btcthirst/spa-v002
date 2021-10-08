@@ -17,14 +17,14 @@ export class GenreViewComponent implements OnInit {
   }
 
   getGenre(){
-    this.list = this.genreCRUD.getAll()
+    this.list = this.genreCRUD.getAllGenres()
   }
   updateGenre(g: Genre){
 
   }
 
   deleteGenre(id: number){
-    this.genreCRUD.delete(id)
+    this.genreCRUD.deleteGenre(id)
     this.getGenre()
     /* console.log(id)
     console.log(this.list) */

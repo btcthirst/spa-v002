@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { BaseElement } from 'src/app/models/base-element';
 import { Genre } from 'src/app/models/genre';
 import { TextBoxElement } from 'src/app/models/textbox-element';
+import { GenreCrudService } from 'src/app/services/genre-crud.service';
 
 
 
@@ -14,13 +15,8 @@ import { TextBoxElement } from 'src/app/models/textbox-element';
 export class CreateComponent implements OnInit {
   @ViewChild('form') form!: FormGroup
   options: BaseElement<any>[]=[]
-  genreIn: Genre={
-    id: 0,
-    name: '',
-    description: ''
-  };
-  
-  constructor() { }
+    
+  constructor(private cruds: GenreCrudService) { }
 
   ngOnInit(): void {
     
@@ -46,8 +42,14 @@ export class CreateComponent implements OnInit {
   
 
   onSubmit(){
-    console.log(this.form.value)
-
+    if(this.form.valid){
+      let name =<string>this.form.controls.name.value
+      let description =<string>this.form.controls.description.value
+      let g: Genre = new Genre(0,name,description)
+      console.log(g)
+      this.cruds.createGenre(g)
+    }
+    
   }
 
 }
