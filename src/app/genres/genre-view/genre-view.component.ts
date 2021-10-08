@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Genre } from 'src/app/models/genre';
 import { GenreCrudService } from 'src/app/services/genre-crud.service';
 
@@ -10,7 +11,10 @@ import { GenreCrudService } from 'src/app/services/genre-crud.service';
 })
 export class GenreViewComponent implements OnInit {
 
-  constructor(private genreCRUD: GenreCrudService) { }
+  constructor(
+    private genreCRUD: GenreCrudService,
+    private router: Router,
+    ) { }
   list!:Genre[]
   ngOnInit(): void {
     this.getGenre()
@@ -19,8 +23,8 @@ export class GenreViewComponent implements OnInit {
   getGenre(){
     this.list = this.genreCRUD.getAllGenres()
   }
-  updateGenre(g: Genre){
-
+  toUpdateGenre(id:number){
+    this.router.navigate([`/genres/update/${id}`])
   }
 
   deleteGenre(id: number){

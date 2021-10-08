@@ -8,7 +8,7 @@ const routes: Routes = [
     children:[
       {path:'',component: GenreViewComponent},
       {path:'create', component: CreateComponent},
-      {path:'update', component: UpdateComponent}
+      {path:'update/:id', component: UpdateComponent}
     ]
   },
 ];

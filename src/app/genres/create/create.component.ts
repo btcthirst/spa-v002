@@ -35,7 +35,7 @@ export class CreateComponent implements OnInit {
         key: "description",
         label: "Описание",
         required: true,
-        order: 1
+        order: 2
       }),
     ]
   }

@@ -11,12 +11,12 @@ export class GenreCrudService {
     private genreDB: GenreDbService
   ) { }
 
-  getAllGenres(){
+  getAllGenres(): Genre[]{
     return this.genreDB.getAllGenres()
   }
 
-  getGenreByID(id: number){
-    this.genreDB.getGenreByID(id)
+  getGenreByID(id: number): Genre|null{
+    return this.genreDB.getGenreByID(id)
   }
 
   createGenre(g: Genre){

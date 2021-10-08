@@ -34,14 +34,14 @@ export class GenreDbService {
     return this.getFromLocalStorage()
   }
 
-  getGenreByID(id: number):Genre|undefined{
+  getGenreByID(id: number):Genre|null{
     
     for(let g of this.genres){
       if(g.id==id){
        return  g        
       }
     }
-    return
+    return null
   }
 
   createGenre(g: Genre){
@@ -57,6 +57,7 @@ export class GenreDbService {
         g.description= genre.description
       }
     }
+    this.writeToLocalStorage(this.genres)
   }
 
   deleteGenre(id: number){
