@@ -1,12 +1,12 @@
 <div class="container bg-secondary mt-5">
-   <form class="form-group" novalidate [formGroup]="updForm" (ngSubmit)="onSubmit()">
+   <form class="form-group" novalidate  [formGroup]="updForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
            <label for="name"> Название жанра</label>
-           <input id="name" type="text" class="form-control" [ngModel]="updGenre.name" formControlName="name">
+           <input id="name" type="text" class="form-control"  formControlName="name">
         </div>
         <div class="form-group">
             <label for="description">Описание</label>
-            <input id="description" type="text" class="form-control" [ngModel]="updGenre.description" formControlName="description">
+            <input id="description" type="text" class="form-control"  formControlName="description">
         </div>
         <div class="form-group">
             <input class="btn btn-secondary m-2" type="reset" >

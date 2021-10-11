@@ -5,12 +5,12 @@ import { CreateComponent, GenreViewComponent, UpdateComponent } from '.';
 
 const routes: Routes = [ 
   {path:'genres',
-    children:[
-      {path:'',component: GenreViewComponent},
-      {path:'create', component: CreateComponent},
-      {path:'update/:id', component: UpdateComponent}
-    ]
-  },
+  children:[
+    {path:'', component: GenreViewComponent},
+    {path:'create', component: CreateComponent},
+    {path:'update/:id', component: UpdateComponent}
+  ]
+},
 ];
 
 @NgModule({

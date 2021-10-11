@@ -27,6 +27,7 @@ export class UpdateComponent implements OnInit{
    this.createForm()
    this.getId()
    this.getData()
+   this.setData()
   }
 
   createForm(){
@@ -42,6 +43,11 @@ export class UpdateComponent implements OnInit{
       this.updGenre = test
     }
     
+  }
+
+  setData(){
+    this.updForm.controls.name.setValue(this.updGenre.name)
+    this.updForm.controls.description.setValue(this.updGenre.description)
   }
 
   getId(){

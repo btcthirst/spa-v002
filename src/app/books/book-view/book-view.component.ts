@@ -10,6 +10,8 @@ import { BooksCrudService } from 'src/app/services/books-crud.service';
   styleUrls: ['./book-view.component.css']
 })
 export class BookViewComponent implements OnInit {
+  authId: number = 0
+  bookId:number=0
   books: BookUpd[] =[]
   constructor(
     private bookService:BooksCrudService,
@@ -29,7 +31,14 @@ export class BookViewComponent implements OnInit {
     console.log(this.books)
   }
 
-  updateBook(aId:number, bId: number){
+  updateBook(aId:number, bId:number){
+    if(this.authId==aId&& this.bookId==bId){
+      this.authId= 0
+      this.bookId=0
+    } else{
+      this.authId = aId
+      this.bookId = bId
+    }
     
   }
 

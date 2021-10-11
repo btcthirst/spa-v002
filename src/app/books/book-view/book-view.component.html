@@ -6,21 +6,33 @@
             <th>Старницы</th>
             <th>Автор</th>
             <th></th>
+            <th></th>
         </tr>        
         <ng-container *ngFor="let a of books" >
-        <tr *ngFor="let item of a.books">
-            
-                <td>{{ item.title }}</td>
-                <td>{{ item.genre }}</td>
-                <td>{{ item.numberOfPages }}</td>
-                <td>...</td>
-                <td>
-                    <input type="button" class="btn btn-primary" (click)="updateBook(a.id,item.id)" value="Редактировать">
-                    <input type="button" class="btn btn-danger" (click)="delBook(a.id,item.id)" value="Удалить">
-                </td>
-            
-            
-        </tr>
+            <tr *ngFor="let item of a.books">
+                <ng-container *ngIf="authId!= a.id&& bookId!=item.id">
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.genre }}</td>
+                    <td>{{ item.numberOfPages }}</td>
+                    <td>...</td>
+                    <td>
+                        <input type="button" class="btn btn-primary" (click)="updateBook(a.id,item.id)" value="Редактировать">
+                        
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-danger" (click)="delBook(a.id,item.id)" value="Удалить">
+                    </td>
+                </ng-container> 
+                <ng-container *ngIf="authId == a.id&& bookId==item.id" >
+                    <td colspan="4">
+                        <app-update [updateBook]="item"></app-update>
+                    </td>
+                    <td>
+                        <input type="button" value="Отменить">
+                    </td>
+                    
+                </ng-container>           
+            </tr>
         </ng-container>
     </table>
 </div>

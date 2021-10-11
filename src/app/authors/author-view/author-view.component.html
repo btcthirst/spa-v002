@@ -1,1 +1,25 @@
-<p>author-view works!</p>
+<div>
+    <div class="container mt-5 mb-5">
+        <a class="link link-primary" [routerLink]="['create']">Добавить автора</a>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>Авторы</th>
+                <th> Книг в базе</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of list">
+                <td>{{ item.surname }} {{ item.firstName }} {{ item.patronymic }} </td>
+                <td> {{ item.books.length }} </td>
+                <td> <input class="btn btn-primary" type="button" value="Редактировать"> </td>
+                <td> <input class="btn btn-danger" type="button" value="Удалить"></td>
+                <td> <input class="btn btn-secondary" type="button" value="Детали"></td>
+            </tr>
+            
+        </table>
+    </div>
+    
+</div>

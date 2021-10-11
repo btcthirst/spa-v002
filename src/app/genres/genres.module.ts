@@ -18,7 +18,7 @@ import { DynamicFormModule } from '../dynamic-form/dynamic-form.module';
   ],
   imports: [
     CommonModule,
-     DynamicFormModule,
+    DynamicFormModule,
     ReactiveFormsModule,
     FormsModule,
     GenresRoutingModule,   
