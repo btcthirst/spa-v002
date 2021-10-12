@@ -1,6 +1,19 @@
 <div>
+
     <app-dynamic-form [elements]="options" [testFunc]="onSubmit" >
-        <!-- <app-create-book></app-create-book> -->
-        <p>test more more tessts</p>
     </app-dynamic-form>
+
+    <div *ngIf="toggle2" >
+        <p class="alert alert-danger" >
+            {{errMess }}
+        </p>
+    </div>
+
+    <div *ngIf="!toggle" class="m-3 p-3">
+        <input type="button" (click)="addBook()" class="btn btn-primary" value="Добавить книгу">
+    </div>
+    <div *ngIf="toggle" class="m-3 p-3">
+        <input type="button" (click)="addBook()" class="btn btn-primary" value="Отменить">
+        <app-create-book></app-create-book>
+    </div>
 </div>

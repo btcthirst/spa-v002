@@ -8,13 +8,15 @@ import { AuthorViewComponent } from './author-view/author-view.component';
 import { CreateComponent } from './create/create.component';
 import { UpdateComponent } from './update/update.component';
 import { BooksModule } from '../books/books.module';
+import { TestPipe } from '../pipes/test.pipe';
 
 
 @NgModule({
   declarations: [
     AuthorViewComponent,
     CreateComponent,
-    UpdateComponent
+    UpdateComponent,
+    TestPipe
   ],
   imports: [
     CommonModule,

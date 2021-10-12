@@ -18,11 +18,12 @@ import { AuthorsRoutingModule } from './authors/authors-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
     NotFoundComponent,
+   
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Author } from 'src/app/models/author';
 import { BaseElement } from 'src/app/models/base-element';
+import { Book } from 'src/app/models/book';
 import { TextBoxElement } from 'src/app/models/textbox-element';
 import { AuthorsCrudService } from 'src/app/services/authors-crud.service';
 import { GenreCrudService } from 'src/app/services/genre-crud.service';
@@ -14,7 +16,12 @@ export class CreateComponent implements OnInit {
 
   @ViewChild('form') form!:FormGroup
   options: BaseElement<any>[]=[] 
-  constructor(
+  toggle: boolean = false
+  toggle2: boolean=false
+  authorNew!: Author
+  booksToAdd: Book[]=[]
+  errMess:string =""
+  constructor(    
     private cruds: AuthorsCrudService,
     private genreCruds: GenreCrudService
   ) { }
@@ -52,7 +59,24 @@ export class CreateComponent implements OnInit {
     ]
   }
 
+  addBook(){
+    this.toggle= !this.toggle
+    
+  }
+
   onSubmit(){
+    
     console.log("i am working!")
+    if(this.form.valid){
+      this.authorNew =this.form.value
+      this.authorNew.books = this.booksToAdd
+      console.log(this.authorNew,this.authorNew.books)
+      if(this.authorNew.books== undefined){
+        this.toggle2= !this.toggle2
+        this.errMess = "нужно добавить хотя бы одну книгу"
+        
+        console.log(this.errMess, this.toggle2)
+      }
+    }
   }
 }

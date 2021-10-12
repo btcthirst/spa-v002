@@ -10,7 +10,7 @@ import { AuthorsCrudService } from 'src/app/services/authors-crud.service';
 export class AuthorViewComponent implements OnInit {
   list!: Author[]
   constructor(
-    private authorService: AuthorsCrudService
+    private authorService: AuthorsCrudService,
   ) { }
 
   ngOnInit(): void {

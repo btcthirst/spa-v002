@@ -13,6 +13,9 @@ import { UpdateComponent } from './update/update.component';
     CreateComponent,
     UpdateComponent
   ],
+  exports:[
+    CreateComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule

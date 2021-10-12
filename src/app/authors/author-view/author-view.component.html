@@ -12,7 +12,7 @@
                 <th></th>
             </tr>
             <tr *ngFor="let item of list">
-                <td>{{ item.surname }} {{ item.firstName }} {{ item.patronymic }} </td>
+                <td>{{ item.surname }} {{ item.firstName | test }} {{ item.patronymic | test}} </td>
                 <td> {{ item.books.length }} </td>
                 <td> <input class="btn btn-primary" type="button" value="Редактировать"> </td>
                 <td> <input class="btn btn-danger" type="button" value="Удалить"></td>
